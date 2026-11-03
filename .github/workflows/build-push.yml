@@ -4,8 +4,8 @@ name: Build & push images
 # version sémantique. Déclenché en poussant un tag git de version, ex. :
 #   git tag v1.4.0 && git push origin v1.4.0
 # Produit :
-#   ghcr.io/sebauvray/toollab-api:1.4.0        (php-fpm + workers queue)
-#   ghcr.io/sebauvray/toollab-api-nginx:1.4.0  (nginx, public/ baké)
+#   ghcr.io/toollaab/toollab-api:1.4.0        (php-fpm + workers queue)
+#   ghcr.io/toollaab/toollab-api-nginx:1.4.0  (nginx, public/ baké)
 on:
   push:
     tags:
@@ -25,9 +25,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: ghcr.io/sebauvray/toollab-api
+          - image: ghcr.io/toollaab/toollab-api
             dockerfile: docker/php/Dockerfile
-          - image: ghcr.io/sebauvray/toollab-api-nginx
+          - image: ghcr.io/toollaab/toollab-api-nginx
             dockerfile: docker/nginx/Dockerfile
     steps:
       - uses: actions/checkout@v6

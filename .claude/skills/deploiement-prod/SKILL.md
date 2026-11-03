@@ -11,16 +11,16 @@ description: Chaîne de production Toollab — images Docker multi-stage poussé
 git tag v1.4.0 && git push origin v1.4.0
    │
    ├── toollab-api/.github/workflows/build-push.yml
-   │     ghcr.io/sebauvray/toollab-api:1.4.0        (php-fpm + workers queue, target=prod)
-   │     ghcr.io/sebauvray/toollab-api-nginx:1.4.0  (nginx, public/ baké)
+   │     ghcr.io/toollaab/toollab-api:1.4.0        (php-fpm + workers queue, target=prod)
+   │     ghcr.io/toollaab/toollab-api-nginx:1.4.0  (nginx, public/ baké)
    │
    └── toollab-front/.github/workflows/build-push.yml
-         ghcr.io/sebauvray/toollab-front:1.4.0      (Nuxt SSR, target=prod)
+         ghcr.io/toollaab/toollab-front:1.4.0      (Nuxt SSR, target=prod)
 ```
 Tags produits : `{{version}}` et `{{major}}.{{minor}}`. Déclencheurs : push d'un tag `v*.*.*` ou `workflow_dispatch`. Cache Buildx GHA (`scope` par image côté API).
 Build-args du Dockerfile PHP : `CURRENT_USER=toollab`, `CURRENT_UID=1000`, `TZ=Europe/Paris`.
 
-Les deux dépôts sont **distincts** (`sebauvray/toollab-api`, `sebauvray/toollab-front`) : **tagger les deux** si le changement est full-stack.
+Les deux dépôts sont **distincts** (`Toollaab/toollab-api`, `Toollaab/toollab-front`) : **tagger les deux** si le changement est full-stack.
 
 ## 2. Dockerfile PHP — les 4 stages
 
